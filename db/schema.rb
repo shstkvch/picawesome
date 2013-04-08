@@ -13,13 +13,13 @@
 
 ActiveRecord::Schema.define(:version => 20130408010451) do
 
-  create_table "items", :force => true do |t|
+  create_table "pics", :force => true do |t|
     t.string   "caption",            :null => false
     t.string   "attribution"
     t.string   "scaled_image_key",   :null => false
     t.string   "original_image_key", :null => false
-    t.integer  "stream_id"
-    t.integer  "user_id"
+    t.integer  "stream_id",          :null => false
+    t.integer  "user_id",            :null => false
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
@@ -45,14 +45,14 @@ ActiveRecord::Schema.define(:version => 20130408010451) do
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.integer  "item_id",    :null => false
+    t.integer  "pic_id",     :null => false
     t.integer  "user_id",    :null => false
     t.boolean  "value",      :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "votes", ["item_id", "user_id"], :name => "index_votes_on_item_id_and_user_id", :unique => true
-  add_index "votes", ["item_id"], :name => "index_votes_on_item_id"
+  add_index "votes", ["pic_id", "user_id"], :name => "index_votes_on_pic_id_and_user_id", :unique => true
+  add_index "votes", ["pic_id"], :name => "index_votes_on_pic_id"
 
 end

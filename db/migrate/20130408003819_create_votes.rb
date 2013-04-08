@@ -9,7 +9,7 @@ class CreateVotes < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index 'votes', ['item_id', 'user_id'], unique: true # One vote per item per person only
-    add_index 'votes', 'item_id'
+    add_index 'votes', ['pic_id', 'user_id'], unique: true # One vote per item per person only
+    add_index 'votes', 'pic_id'
   end
 end
