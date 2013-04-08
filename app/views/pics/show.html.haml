@@ -3,5 +3,5 @@
 
 %h2
   = link_to("picaweso.me/#{@pic.stream.slug}", "/#{@pic.stream.slug}") + ": " + @pic.id.to_s
-- $pic = @pic
-= render 'pic'
+
+= render 'pic', pic: @pic

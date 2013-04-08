@@ -1,1 +1,4 @@
-%h1 all.html.haml
+%h1 All pics
+
+- @pics.each do |pic|
+  = render 'pic', pic: pic

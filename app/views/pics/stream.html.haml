@@ -2,5 +2,4 @@
   = "/" + @stream.slug.upcase
 
 - @stream.pics.each do |pic|
-  - $pic = pic # ugh kludge
-  = render 'pic'
+  = render 'pic', pic: pic

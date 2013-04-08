@@ -10,7 +10,7 @@ class PicsController < ApplicationController
   end
 
   def all
-    @stream
+    @pics = Pic.all
   end
 
   def vote

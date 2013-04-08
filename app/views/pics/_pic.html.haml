@@ -4,15 +4,15 @@
       %img.item-partial-image{src: "http://s3-eu-west-1.amazonaws.com/picawesome-production/thumb/dDklaxloSEKctNjVFUSw_4099369442713.png"}
 
   .sidepanel
-    %h3= $pic.caption
+    %h3= pic.caption
     %a.button.vote.upvote
       %span.typicn.tick
-      = $pic.stream.upvote_copy   || "Upvote"
+      = pic.stream.upvote_copy   || "Upvote"
     %a.button.vote.downvote
       %span.typicn.times
-      = $pic.stream.downvote_copy || "Downvote"
+      = pic.stream.downvote_copy || "Downvote"
 
 
     .vote-chart.clearfix
-      .bar.yes{style: "width: #{$pic.upvote_percentage};"}=  $pic.upvote_count
-      .bar.no{style: "width: #{$pic.downvote_percentage};"}= $pic.downvote_count
+      .bar.yes{style: "width: #{pic.upvote_percentage};"}=  pic.upvote_count
+      .bar.no{style: "width: #{pic.downvote_percentage};"}= pic.downvote_count
