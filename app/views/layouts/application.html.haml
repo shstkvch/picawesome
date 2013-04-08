@@ -10,8 +10,16 @@
     #topbar.styleomatic
       %a.brand.styleomatic{:href => "/"} PICAWESO.ME
       %span#stream_name.styleomatic= yield :stream_slug
+      .account
+        - if user_signed_in?
+          %span.username= current_user.username
+          = link_to "Log out", destroy_user_session_path, method: :delete
+        - else
+          = link_to "Log in/sign up", new_user_session_path
     .outercontainer
-      %h4.notice= notice
-      %h4.alert= alert
+      - if notice
+        .flash.notice= notice
+      - if alert
+        .flash.alert= alert
 
       = yield
