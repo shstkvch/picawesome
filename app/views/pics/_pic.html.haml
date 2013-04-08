@@ -1,0 +1,18 @@
+.pic.clearfix
+  .item-partial-image-wrap
+    %a{href: "http://s3-eu-west-1.amazonaws.com/picawesome-production/orig/SHe3qp4xRySltm35evTZ_LOL_okay_then.jpg"}
+      %img.item-partial-image{src: "http://s3-eu-west-1.amazonaws.com/picawesome-production/thumb/dDklaxloSEKctNjVFUSw_4099369442713.png"}
+
+  .sidepanel
+    %h3= $pic.caption
+    %a.button.vote.upvote
+      %span.typicn.tick
+      = $pic.stream.upvote_copy   || "Upvote"
+    %a.button.vote.downvote
+      %span.typicn.times
+      = $pic.stream.downvote_copy || "Downvote"
+
+
+    .vote-chart.clearfix
+      .bar.yes{style: "width: #{$pic.upvote_percentage};"}=  $pic.upvote_count
+      .bar.no{style: "width: #{$pic.downvote_percentage};"}= $pic.downvote_count

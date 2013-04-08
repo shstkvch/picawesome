@@ -1,0 +1,6 @@
+- content_for :stream_slug do
+  = "/" + @stream.slug.upcase
+
+- @stream.pics.each do |pic|
+  - $pic = pic # ugh kludge
+  = render '/pics/pic'

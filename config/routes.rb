@@ -1,8 +1,20 @@
 Picawesome::Application.routes.draw do
+  get "streams/show"
+
+  get "pics/show"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :items
+  match ':stream'      => 'streams#show'
+  match ':stream/:pic' => 'pics#show'
+
+
+  # XXX: gawd none of this makes sense (what controllers do I have and what goes where? )
+  # Perhaps we should just have a pics controller:
+  # pic#show for individual images, pic#stream for streams, pic#all, pic#new ?? seems to work. Not sure.
+
+  root to: 'streams#all'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
