@@ -4,19 +4,12 @@ Picawesome::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  get ':stream'      => 'streams#show'
+  get ':stream'      => 'pics#stream'
 
-  post ':pic/vote'     => 'pics#vote'
+  post ':pic/vote'   => 'pics#vote'
   get ':stream/:pic' => 'pics#show'
 
-
-
-
-  # XXX: gawd none of this makes sense (what controllers do I have and what goes where? )
-  # Perhaps we should just have a pics controller:
-  # pic#show for individual images, pic#stream for streams, pic#all, pic#new ?? seems to work. Not sure.
-
-  root to: 'streams#all'
+  root to: 'pics#all'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

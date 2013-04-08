@@ -5,6 +5,14 @@ class PicsController < ApplicationController
     @pic = Pic.find_by_id(params[:pic])
   end
 
+  def stream
+    @stream = Stream.find_by_slug(params[:stream])
+  end
+
+  def all
+    @stream
+  end
+
   def vote
     @pic = Pic.find_by_id(params[:pic])
     @pic.cast_vote(current_user, params[:value].to_bool)
