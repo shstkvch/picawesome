@@ -2,11 +2,11 @@ class PicsController < ApplicationController
   before_filter :authenticate_user!, only: [:vote]
 
   def show
-    @pic = Pic.find_by_id(params[:pic])
+    @pic = Pic.find_by_id!(params[:pic])
   end
 
   def stream
-    @stream = Stream.find_by_slug(params[:stream])
+    @stream = Stream.find_by_slug!(params[:stream])
   end
 
   def all
@@ -14,7 +14,7 @@ class PicsController < ApplicationController
   end
 
   def vote
-    @pic = Pic.find_by_id(params[:pic])
+    @pic = Pic.find_by_id!(params[:pic])
     @pic.cast_vote(current_user, params[:value].to_bool)
 
     respond_to do |format|
