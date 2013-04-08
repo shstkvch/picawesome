@@ -5,6 +5,11 @@ class Pic < ActiveRecord::Base
   belongs_to :stream
   has_many :votes
 
+  def url_title
+    return caption.gsub(/\W/, '_').gsub(/_{2,}/, '_')[0,25]
+  end
+
+
   def cast_vote(user, value)
     vote = Vote.where(pic_id: id, user_id: user.id).first
     if vote
