@@ -10,9 +10,11 @@ class Pic < ActiveRecord::Base
   end
 
   def user_upvoted?(user)
+    return false if user.nil?
     return votes.where(user_id: user.id, value: false).empty?
   end
   def user_downvoted?(user)
+    return false if user.nil?
     return votes.where(user_id: user.id, value: true).empty?
   end
 
