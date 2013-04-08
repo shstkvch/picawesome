@@ -1,4 +1,4 @@
-class Item < ActiveRecord::Base
+class Pic < ActiveRecord::Base
   attr_accessible :caption, :attribution
 
   belongs_to :stream
