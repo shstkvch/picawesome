@@ -10,6 +10,8 @@
     #topbar.styleomatic
       %a.brand.styleomatic{:href => "/"} PICAWESO.ME
       %span#stream_name.styleomatic= yield :stream_slug
-
     .outercontainer
+      %h4.notice= notice
+      %h4.alert= alert
+
       = yield

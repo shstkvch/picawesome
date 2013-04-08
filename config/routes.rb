@@ -1,13 +1,15 @@
 Picawesome::Application.routes.draw do
-  get "streams/show"
-
-  get "pics/show"
+  devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout' }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  match ':stream'      => 'streams#show'
-  match ':stream/:pic' => 'pics#show'
+  get ':stream'      => 'streams#show'
+
+  post ':pic/vote'     => 'pics#vote'
+  get ':stream/:pic' => 'pics#show'
+
+
 
 
   # XXX: gawd none of this makes sense (what controllers do I have and what goes where? )
