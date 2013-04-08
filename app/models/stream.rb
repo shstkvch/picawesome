@@ -3,6 +3,7 @@ class Stream < ActiveRecord::Base
   validates :slug, presence: true
   validates :slug, uniqueness: { case_sensitive: false }
   # validates :slug_begins_with_letter #TODO: write this validator when you can be bothered.
+  validates_format_of :slug, with: /^[a-z]/
 
   has_many :pics
 end
