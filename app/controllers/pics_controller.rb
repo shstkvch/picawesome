@@ -3,8 +3,8 @@ class PicsController < ApplicationController
 
   def show
     @pic = Pic.find_by_id!(params[:pic])
-    redirect_to "/#{params[:pic]}" unless params[:stream] == @pic.stream.slug
-    redirect_to "/#{params[:pic]}" unless params[:title] and params[:title] == @pic.url_title
+    redirect_to "/#{params[:pic]}" and return unless params[:stream] == @pic.stream.slug
+    redirect_to "/#{params[:pic]}" and return unless params[:title] and params[:title] == @pic.url_title
   end
 
   def stream
