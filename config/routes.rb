@@ -4,6 +4,7 @@ Picawesome::Application.routes.draw do
   # See how all your routes lay out with "rake routes"
 
   devise_for :users, path: 'auth', path_names: { sign_in: 'login', sign_out: 'logout' }
+  get 'shortlink/:short'    => 'redirects#shortlink'
 
   post ':pic/vote'          => 'pics#vote',                constraints: { pic: /\d+/}
 
@@ -12,6 +13,7 @@ Picawesome::Application.routes.draw do
   get ':stream/:pic/:title' => 'pics#show',   as: :pic,    constraints: { stream: /[a-z]\w+/, pic: /\d+/ }
 
   get ':pic'                => 'redirects#pic',            constraints: { pic: /\d+/}
+
 
   root to: 'pics#all'
 end

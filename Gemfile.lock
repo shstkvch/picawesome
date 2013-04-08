@@ -75,6 +75,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    radix62 (1.0.0)
     rails (3.2.13)
       actionmailer (= 3.2.13)
       actionpack (= 3.2.13)
@@ -128,6 +129,7 @@ DEPENDENCIES
   devise
   haml-rails
   jquery-rails
+  radix62
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   sqlite3
