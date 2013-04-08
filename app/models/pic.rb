@@ -9,6 +9,12 @@ class Pic < ActiveRecord::Base
     return caption.gsub(/\W/, '_').gsub(/_{2,}/, '_')[0,25]
   end
 
+  def user_upvoted?(user)
+    return votes.where(user_id: user.id, value: false).empty?
+  end
+  def user_downvoted?(user)
+    return votes.where(user_id: user.id, value: true).empty?
+  end
 
   def cast_vote(user, value)
     vote = Vote.where(pic_id: id, user_id: user.id).first

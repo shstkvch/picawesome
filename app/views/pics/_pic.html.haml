@@ -1,14 +1,14 @@
-.pic.clearfix
+.pic.clearfix{data: { pic: pic.id }}
   .item-partial-image-wrap
     %a{href: "http://s3-eu-west-1.amazonaws.com/picawesome-production/orig/SHe3qp4xRySltm35evTZ_LOL_okay_then.jpg"}
       %img.item-partial-image{src: "http://s3-eu-west-1.amazonaws.com/picawesome-production/thumb/dDklaxloSEKctNjVFUSw_4099369442713.png"}
 
   .sidepanel
     %h3= pic.caption
-    %a.button.vote.upvote
+    %a.button.vote.upvote{class: pic.user_upvoted?(current_user) ? "chosen" : ""}
       %span.typicn.tick
       = pic.stream.upvote_copy   || "Upvote"
-    %a.button.vote.downvote
+    %a.button.vote.downvote{class: pic.user_downvoted?(current_user) ? "chosen" : ""}
       %span.typicn.times
       = pic.stream.downvote_copy || "Downvote"
 
