@@ -37,6 +37,10 @@ class Pic < ActiveRecord::Base
     end
   end
 
+  def to_s
+    "(#{id}) #{caption}"
+  end
+
   def vote_summary
     {
       upvote: {

@@ -20,6 +20,7 @@ ActiveAdmin.register Pic do
     default_actions
   end
 
+
   form do |f|
     f.inputs "Pic details" do
       f.input :stream

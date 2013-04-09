@@ -169,6 +169,7 @@ DEPENDENCIES
   devise
   haml-rails
   jquery-rails
+  kaminari
   nilify_blanks
   radix62
   rails (= 3.2.13)

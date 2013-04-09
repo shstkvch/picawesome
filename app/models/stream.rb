@@ -10,6 +10,6 @@ class Stream < ActiveRecord::Base
   has_many :pics
 
   def to_s
-    return slug
+    slug
   end
 end
