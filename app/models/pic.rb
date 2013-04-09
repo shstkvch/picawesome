@@ -1,6 +1,8 @@
 class Pic < ActiveRecord::Base
   attr_accessible :caption, :attribution
 
+  nilify_blanks
+
   belongs_to :user
   belongs_to :stream
   has_many :votes

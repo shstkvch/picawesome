@@ -10,8 +10,9 @@ ActiveAdmin.register User do
     id_column
     column :username
     column :email
-    column :sign_in_count
     column :admin
+    column :sign_in_count
+    column :created_at
     default_actions
   end
 
