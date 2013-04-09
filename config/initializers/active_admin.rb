@@ -210,10 +210,22 @@ end
 
 
 def authenticate_admin_user!
-  unless current_user.admin?
-    flash[:alert] = "You are not authorized to perform this action."
-    redirect_to new_user_session_path
-    return false
+  if current_user
+    if current_user.admin?
+      return true
+    else
+      flash[:alert] = "You are not authorized to perform this action."
+      redirect_to root_path
+      return false
+    end
   end
-  return true
+
+  redirect_to new_user_session_path
+  return false
+end
+
+module ActiveAdmin
+  class BaseController
+    with_role :admin
+  end
 end
