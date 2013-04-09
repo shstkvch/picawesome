@@ -249,14 +249,14 @@ h3, h4, h5, h6
       &.upvote
         background: $upvote
         &:hover
-        background: lighten($upvote, 5%)
+          background: lighten($upvote, 5%)
         &.chosen
           color: $upvote
           border-color: $upvote
       &.downvote
         background: $downvote
         &:hover
-        background: lighten($downvote, 5%)
+          background: lighten($downvote, 5%)
         &.chosen
           color: $downvote
           border-color: $downvote
@@ -289,8 +289,8 @@ div.item-partial-image-wrap
     color: white
     text-align: center
     &.yes
-      background-color: lighten($upvote, 5%)
+      background-color: $upvote
       float: left
     &.no
-      background-color: lighten($downvote, 5%)
+      background-color: $downvote
       float: right
