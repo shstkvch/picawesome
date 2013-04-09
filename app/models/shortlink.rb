@@ -3,8 +3,8 @@ class Shortlink < ActiveRecord::Base
   scope :generated, where("slug IS NULL")
 
   attr_accessible :slug, :reference, as: :admin
-
   validates_uniqueness_of :slug
+  nilify_blanks
 
   def increment_view_count!
     Shortlink.increment_counter :counter, self.id

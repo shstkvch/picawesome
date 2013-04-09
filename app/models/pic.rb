@@ -1,5 +1,8 @@
 class Pic < ActiveRecord::Base
-  #attr_accessible :caption, :attribution
+  attr_accessible :caption, :attribution, :scaled_image_key, :original_image_key, :user, :user_id, :stream, :stream_id, as: :admin
+  validates_presence_of :caption
+  validates_presence_of :user
+  validates_presence_of :stream
 
   nilify_blanks
 
@@ -47,6 +50,9 @@ class Pic < ActiveRecord::Base
     }
   end
 
+  def vote_count
+    votes.count
+  end
   def upvote_count
     votes.where(value: true).count
   end
@@ -55,9 +61,9 @@ class Pic < ActiveRecord::Base
   end
 
   def upvote_percentage
-    (upvote_count.to_f   / votes.count.to_f * 100.to_f).to_s + "%"
+    (upvote_count.to_f   / vote_count.to_f * 100.to_f).to_s + "%"
   end
   def downvote_percentage
-    (downvote_count.to_f / votes.count.to_f * 100.to_f).to_s + "%"
+    (downvote_count.to_f / vote_count.to_f * 100.to_f).to_s + "%"
   end
 end

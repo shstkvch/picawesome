@@ -8,4 +8,8 @@ class Stream < ActiveRecord::Base
   nilify_blanks
 
   has_many :pics
+
+  def to_s
+    return slug
+  end
 end
