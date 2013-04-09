@@ -1,5 +1,5 @@
 class Pic < ActiveRecord::Base
-  attr_accessible :caption, :attribution
+  #attr_accessible :caption, :attribution
 
   nilify_blanks
 

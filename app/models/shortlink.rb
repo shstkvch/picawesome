@@ -1,17 +1,26 @@
 class Shortlink < ActiveRecord::Base
-  attr_accessible :slug, :reference
+  scope :custom,    where("slug IS NOT NULL")
+  scope :generated, where("slug IS NULL")
+
+  attr_accessible :slug, :reference, as: :admin
+
+  validates_uniqueness_of :slug
 
   def increment_view_count!
     Shortlink.increment_counter :counter, self.id
   end
 
   def long_url
-    return '/' if reference.nil? # Necessary because the Shortlink needs to be inserted before we have a pic ref
-    if reference.match(/^https?:\/\/.+/)
+    return "/" if reference.nil? # Necessary because the Shortlink needs to be inserted before we have a pic ref
+    if is_custom?
       reference
     else
       "/" + reference
     end
+  end
+
+  def is_custom?
+    !reference.match(/\d+/)
   end
 
   def short_url
