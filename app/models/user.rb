@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates_format_of       :email,    with: Devise.email_regexp, allow_blank: true, if: :email_changed?
   validates_presence_of     :password, on: :create
   validates_confirmation_of :password, on: :create
-  validates_length_of       :password, within: Devise.password_length, allow_blank: false
+  validates_length_of       :password, within: Devise.password_length, allow_blank: false, on: :create
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
