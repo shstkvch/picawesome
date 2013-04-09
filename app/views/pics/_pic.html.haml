@@ -4,7 +4,8 @@
       %img.item-partial-image{src: "http://s3-eu-west-1.amazonaws.com/picawesome-production/thumb/dDklaxloSEKctNjVFUSw_4099369442713.png"}
 
   .sidepanel
-    %h3= pic.caption
+
+    %h3.caption= link_to pic.caption, pic_path(pic)
     %a.button.vote.upvote{class: pic.user_upvoted?(current_user) ? "chosen" : ""}
       %span.typicn.tick
       = pic.stream.upvote_copy   || "Upvote"
