@@ -1,5 +1,7 @@
 - content_for :stream_slug do
   = "/" + @pic.stream.slug.upcase
+- if @pic.stream.background_color
+  %span.settings-transfer.bg-color= @pic.stream.background_color
 
 %h2
   = link_to("picaweso.me/#{@pic.stream.slug}", "/#{@pic.stream.slug}") + ": " + @pic.id.to_s

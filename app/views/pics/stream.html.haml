@@ -1,5 +1,7 @@
 - content_for :stream_slug do
   = "/" + @stream.slug.upcase
+- if @stream.background_color
+  %span.settings-transfer.bg-color= @stream.background_color
 
 - @stream.pics.each do |pic|
   = render 'pic', pic: pic

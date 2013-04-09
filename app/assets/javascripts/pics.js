@@ -53,4 +53,5 @@ $(function() {
         vote(pic, val);
     });
 
+    $('.styleomatic').css("background-color", $('.settings-transfer.bg-color').text());
 });
