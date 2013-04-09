@@ -10,11 +10,11 @@ Picawesome::Application.routes.draw do
 
   get 'shortlink/:short'    => 'redirects#shortlink'
 
-  post ':pic/vote'          => 'pics#vote',                constraints: { pic: /\d+/}
+  post ':pic/vote'          => 'pics#vote',                  constraints: { pic: /\d+/}
 
-  get ':stream'             => 'pics#stream', as: :stream, constraints: { stream: /[a-z]\w+/ }
-  get ':stream/:pic'        => 'pics#show',                constraints: { stream: /[a-z]\w+/, pic: /\d+/ }
-  get ':stream/:pic/:title' => 'pics#show',   as: :pic,    constraints: { stream: /[a-z]\w+/, pic: /\d+/ }
+  get ':stream'             => 'pics#stream',   as: :stream, constraints: { stream: /[a-zA-Z]\w+/ }
+  get ':stream/:pic'        => 'pics#show',                  constraints: { stream: /[a-zA-Z]\w+/, pic: /\d+/ }
+  get ':stream/:pic/:title' => 'pics#show',                  constraints: { stream: /[a-zA-Z]\w+/, pic: /\d+/ }
 
-  get ':pic'                => 'redirects#pic',            constraints: { pic: /\d+/}
+  get ':pic'                => 'redirects#pic', as: :pic,    constraints: { pic: /\d+/}
 end

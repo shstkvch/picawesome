@@ -4,7 +4,7 @@ class Stream < ActiveRecord::Base
 
   validates :slug, presence: true
   validates :slug, uniqueness: { case_sensitive: false }
-  validates_format_of :slug, with: /\A[a-z]\w+\z/
+  validates_format_of :slug, with: /\A[a-zA-Z]\w+\z/
   nilify_blanks
 
   has_many :pics
