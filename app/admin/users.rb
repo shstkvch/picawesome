@@ -28,5 +28,21 @@ ActiveAdmin.register User do
     f.actions
   end
 
+  show do |user|
+    attributes_table do
+      row :id
+      row :username
+      row :email
+      row :admin
+
+      row :reset_password_token
+      row :reset_password_sent_at
+      row :sign_in_count
+      row :current_sign_in_ip
+      row :last_sign_in_ip
+      row :created_at
+    end
+    active_admin_comments
+  end
 
 end

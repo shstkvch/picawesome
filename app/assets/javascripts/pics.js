@@ -27,10 +27,12 @@ $(function() {
                 var yes   = chart.find('.yes');
                 var no    = chart.find('.no');
 
-                yes.text(data.upvote.count);
-                yes.width(data.upvote.percentage);
-                no.text(data.downvote.count);
-                no.width(data.downvote.percentage);
+                var vote_count = data.upvote_count + data.downvote_count;
+
+                yes.text(data.upvote_count);
+                yes.width((data.upvote_count / vote_count * 100).toString() + "%");
+                no.text(data.downvote_count);
+                no.width((data.downvote_count / vote_count * 100).toString() + "%");
             },
             error: function(jqxhr) {
                 if (jqxhr.status == 401) {

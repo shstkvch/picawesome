@@ -43,14 +43,9 @@ class Pic < ActiveRecord::Base
 
   def vote_summary
     {
-      upvote: {
-        count: upvote_count,
-        percentage: upvote_percentage
-      },
-      downvote: {
-        count: downvote_count,
-        percentage: downvote_percentage
-      }
+      vote_count: vote_count,
+      upvote_count: upvote_count,
+      downvote_count: downvote_count
     }
   end
 

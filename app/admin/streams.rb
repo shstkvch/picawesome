@@ -1,12 +1,15 @@
 ActiveAdmin.register Stream do
   filter :slug
   filter :nsfw
+  filter :created_at
 
   index do
     selectable_column
     id_column
     column          :slug
-    column 'NSFW',  :nsfw
+    column 'NSFW',  :nsfw do |stream|
+      stream.nsfw? ? "NSFW" : ""
+    end
     column          :upvote_copy
     column          :downvote_copy
     column 'Color', :background_color
