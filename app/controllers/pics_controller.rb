@@ -8,7 +8,10 @@ class PicsController < ApplicationController
   end
 
   def stream
-    @stream = Stream.find_by_slug!(params[:stream])
+    @stream = Stream.where("lower(slug) = ?", params[:stream].downcase).first
+    if params[:stream] != @stream.slug # If case is wrong
+      redirect_to stream_path(@stream.slug)
+    end
   end
 
   def all
