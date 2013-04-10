@@ -8,9 +8,9 @@ class RedirectsController < ApplicationController
     slug = params[:short]
     if params[:short].match(/^[~-].+/)
       slug[0] = ''
-      @short = Shortlink.find_by_slug!(slug)
+      @short = Shortlink.find_by_slug(slug)
     else
-      @short = Shortlink.find_by_id!(Radix62.decode62(slug))
+      @short = Shortlink.find_by_id(Radix62.decode62(slug))
     end
 
     if @short
