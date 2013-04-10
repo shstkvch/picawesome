@@ -11,7 +11,7 @@ class Pic < ActiveRecord::Base
   has_many :votes
 
   def url_title
-    return caption.gsub(/\W/, '_').gsub(/_{2,}/, '_')[0,25]
+    return caption.gsub(/\W/, '_').gsub(/_{2,}/, '_')[0,25].gsub(/\A_+|_+\Z/, '')
   end
 
   def user_upvoted?(user)
