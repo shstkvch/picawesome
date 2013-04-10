@@ -16,3 +16,6 @@
 
 # Ignore RubyMine shit
 /.idea
+
+# Amazon Elastic Beanstalk (configuration)
+.elasticbeanstalk/
