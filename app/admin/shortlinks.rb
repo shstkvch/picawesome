@@ -1,12 +1,14 @@
 ActiveAdmin.register Shortlink do
   menu label: "Short links"
 
+  scope :all
   scope :custom, default: true
   scope :generated
-  scope :all
+
 
   filter :slug
   filter :nsfw
+  filter :counter
   filter :id
 
   index do
