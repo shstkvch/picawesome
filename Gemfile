@@ -38,7 +38,4 @@ gem 'devise'
 gem 'radix62'
 gem 'nilify_blanks'
 gem 'kaminari'
-
 gem 'activeadmin'
-
-

@@ -13,7 +13,12 @@ class RedirectsController < ApplicationController
       @short = Shortlink.find_by_id!(Radix62.decode62(slug))
     end
 
-    @short.increment_view_count!
-    redirect_to @short.long_url
+    if @short
+      @short.increment_view_count!
+      redirect_to @short.long_url
+    else
+      flash[:alert] = "Invalid link"
+      redirect_to root_path
+    end
   end
 end
