@@ -8,8 +8,6 @@ $(function() {
                 value: value
             },
             success: function(data) {
-                console.log(data);
-
                 var pic = $('.pic[data-pic="' + id + '"]');
 
                 var upbutton = pic.find('.button.vote.upvote');

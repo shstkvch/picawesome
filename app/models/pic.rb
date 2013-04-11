@@ -60,9 +60,11 @@ class Pic < ActiveRecord::Base
   end
 
   def upvote_percentage
+    return "0%" if vote_count == 0
     (upvote_count.to_f   / vote_count.to_f * 100.to_f).to_s + "%"
   end
   def downvote_percentage
+    return "0%" if vote_count == 0
     (downvote_count.to_f / vote_count.to_f * 100.to_f).to_s + "%"
   end
 end
