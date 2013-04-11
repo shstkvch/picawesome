@@ -56,4 +56,18 @@ $(function() {
     });
 
     $('.styleomatic').css("background-color", $('.settings-transfer.bg-color').text());
+
+    var bgcolor = $.color($('.styleomatic').css("background-color")); // Read back out to convert named colors
+
+    var r = bgcolor.red()   * 255;
+    var g = bgcolor.green() * 255;
+    var b = bgcolor.blue()  * 255;
+    var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+    if (yiq >= 128) {
+        $('.styleomatic').addClass('invert');
+    }
+
+
+
+
 });
