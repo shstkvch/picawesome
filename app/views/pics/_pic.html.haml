@@ -5,7 +5,7 @@
 
   .sidepanel
 
-    %h3.caption= link_to pic.caption, pic_path(pic)
+    %h3.caption= link_to "#{pic.stream.slug}: #{pic.caption}", pic_path(pic)
     %a.button.vote.upvote{class: pic.user_upvoted?(current_user) ? "chosen" : ""}
       %span.typicn.tick
       = pic.stream.upvote_copy   || "Upvote"
