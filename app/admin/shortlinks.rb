@@ -9,8 +9,12 @@ ActiveAdmin.register Shortlink do
   index do
     selectable_column
     id_column
-    column :short_url
-    column :reference
+    column :short_url do |link|
+      link_to link.short_url, link.short_url
+    end
+    column :reference do |link|
+      link_to link.reference, link.reference
+    end
 
     column :counter
     column :created_at

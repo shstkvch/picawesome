@@ -1,5 +1,11 @@
 class Pic < ActiveRecord::Base
-  attr_accessible :caption, :attribution, :scaled_image_key, :original_image_key, :user, :user_id, :stream, :stream_id, as: :admin
+  attr_accessible :caption, :attribution, :image, :user, :user_id, :stream, :stream_id, as: :admin
+  has_attached_file :image, styles: { display: '500', thumb: "80x80#" }
+  validates_attachment_presence :image
+  validates_attachment_content_type :image, content_type: [ 'image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/bmp' ]
+  validates_attachment_size :image, in: 0..5.megabytes
+
+
   validates_presence_of :caption
   validates_presence_of :user
   validates_presence_of :stream
@@ -14,9 +20,14 @@ class Pic < ActiveRecord::Base
     return caption.gsub(/\W/, '_').gsub(/_{2,}/, '_')[0,25].gsub(/\A_+|_+\Z/, '')
   end
 
-  def short_url
+  def short_url(scheme=true)
     return nil if new_record?
-    "http://pcws.me/" + Radix62.encode62(id)
+    if scheme
+      base = "http://pcws.me/"
+    else
+      base = "pcws.me/"
+    end
+    base + Radix62.encode62(id)
   end
 
   def user_upvoted?(user)

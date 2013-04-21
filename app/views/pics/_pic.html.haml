@@ -1,8 +1,10 @@
 .pic.clearfix{data: { pic: pic.id }}
   .item-partial-image-wrap
-    %a{href: "http://s3-eu-west-1.amazonaws.com/picawesome-production/orig/SHe3qp4xRySltm35evTZ_LOL_okay_then.jpg"}
-      %img.item-partial-image{src: "http://s3-eu-west-1.amazonaws.com/picawesome-production/thumb/dDklaxloSEKctNjVFUSw_4099369442713.png"}
+    //%a{href: "http://s3-eu-west-1.amazonaws.com/picawesome-production/orig/SHe3qp4xRySltm35evTZ_LOL_okay_then.jpg"}
+    //  %img.item-partial-image{src: "http://s3-eu-west-1.amazonaws.com/picawesome-production/thumb/dDklaxloSEKctNjVFUSw_4099369442713.png"}
 
+    %a{href: pic.image.url}
+      %img.item-partial-image{src: pic.image.url(:display)}
   .sidepanel
 
     %h3.caption= link_to "#{pic.stream.slug}: #{pic.caption}", pic_path(pic)

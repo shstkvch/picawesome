@@ -8,17 +8,24 @@ ActiveAdmin.register Pic do
   index do
     selectable_column
     id_column
+
+    column :image do |pic|
+      link_to(image_tag(pic.image.url(:thumb)), admin_pic_path(pic))
+    end
+
     column :stream
     column :caption
 
-    column :vote_count
-    column :upvote_count
-    column :downvote_count
+    column 'Votes',     :vote_count
+    column 'Upvotes',   :upvote_count
+    column 'Downvotes', :downvote_count
 
     column :attribution
     column :user
 
-    column :short_url
+    column :short_url do |pic|
+      link_to pic.short_url(false), pic.short_url
+    end
     default_actions
   end
 
@@ -29,8 +36,7 @@ ActiveAdmin.register Pic do
       f.input :caption
       f.input :attribution
 
-      f.input :original_image_key
-      f.input :scaled_image_key
+      f.input :image, as: :file, :hint => f.template.image_tag(f.object.image.url(:display))
 
       f.input :user
     end
@@ -44,19 +50,22 @@ ActiveAdmin.register Pic do
       row :stream
       row :caption
 
-      row :vote_count
-      row :upvote_count
-      row :downvote_count
+      row :image do |pic|
+        link_to(image_tag(pic.image.url(:display)), pic.image.url)
+      end
 
       row :attribution
       row :user
 
-      row :scaled_image_key
-      row :original_image_key
+      row :short_url do |pic|
+        link_to pic.short_url, pic.short_url
+      end
 
       row :created_at
+      row :vote_count
+      row :upvote_count
+      row :downvote_count
 
-      row :short_url
     end
     active_admin_comments
   end

@@ -58,5 +58,8 @@ module Picawesome
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Path to directory containing ImageMagick's convert utility - used by Paperclip for image processing
+    Paperclip.options[:command_path] = '/usr/bin'
   end
 end
