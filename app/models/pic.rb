@@ -17,7 +17,7 @@ class Pic < ActiveRecord::Base
   has_many :votes
 
   def url_title
-    return caption.gsub(/\W/, '_').gsub(/_{2,}/, '_')[0,25].gsub(/\A_+|_+\Z/, '')
+    return caption.gsub(/[^A-Za-z0-9_\-']/, '_').gsub(/_{2,}/, '_')[0,25].gsub(/\A_+|_+\Z/, '')
   end
 
   def short_url(scheme=true)
