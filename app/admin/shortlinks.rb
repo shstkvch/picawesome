@@ -1,11 +1,6 @@
 ActiveAdmin.register Shortlink do
   menu label: "Short links"
 
-  scope :all
-  scope :custom, default: true
-  scope :generated
-
-
   filter :slug
   filter :nsfw
   filter :counter
@@ -15,7 +10,7 @@ ActiveAdmin.register Shortlink do
     selectable_column
     id_column
     column :short_url
-    column :long_url
+    column :reference
 
     column :counter
     column :created_at
@@ -35,7 +30,6 @@ ActiveAdmin.register Shortlink do
     attributes_table do
       row :id
       row :short_url
-      row :long_url
       row :slug
       row :reference
 

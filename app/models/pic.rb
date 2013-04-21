@@ -14,6 +14,11 @@ class Pic < ActiveRecord::Base
     return caption.gsub(/\W/, '_').gsub(/_{2,}/, '_')[0,25].gsub(/\A_+|_+\Z/, '')
   end
 
+  def short_url
+    return nil if new_record?
+    "http://pcws.me/" + Radix62.encode62(id)
+  end
+
   def user_upvoted?(user)
     return false if user.nil?
     return !votes.where(user_id: user.id, value: true).empty?

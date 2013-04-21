@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409153541) do
+ActiveRecord::Schema.define(:version => 20130421002754) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -40,14 +40,13 @@ ActiveRecord::Schema.define(:version => 20130409153541) do
   end
 
   create_table "shortlinks", :force => true do |t|
-    t.string   "slug"
-    t.string   "reference"
+    t.string   "slug",                      :null => false
+    t.string   "reference",                 :null => false
     t.integer  "counter",    :default => 0, :null => false
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
 
-  add_index "shortlinks", ["reference"], :name => "index_shortlinks_on_reference"
   add_index "shortlinks", ["slug"], :name => "index_shortlinks_on_slug", :unique => true
 
   create_table "streams", :force => true do |t|

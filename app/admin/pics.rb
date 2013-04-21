@@ -17,6 +17,8 @@ ActiveAdmin.register Pic do
 
     column :attribution
     column :user
+
+    column :short_url
     default_actions
   end
 
@@ -53,6 +55,8 @@ ActiveAdmin.register Pic do
       row :original_image_key
 
       row :created_at
+
+      row :short_url
     end
     active_admin_comments
   end
